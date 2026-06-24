@@ -1,3 +1,27 @@
+আপনার কোডটিতে একটি ছোট **সিনট্যাক্স ভুল (Syntax Error)** আছে, যার কারণে কোডটি রান করছে না বা ক্র্যাশ করছে।
+
+`questions` অ্যারের (Array) ভেতর ১১ নম্বর অবজেক্ট এবং ১২ নম্বর অবজেক্টের মাঝে একটি **কমা ( , )** বাদ পড়েছে।
+
+### কোথায় ভুলটি হয়েছে?
+
+কোডের এই অংশটি লক্ষ করুন:
+
+```javascript
+        ]
+    }{
+        question: "নিচের কোন ভগ্নাংশটি ৩/৮ হতে বড়?",
+
+```
+
+এখানে দুটি অবজেক্টের মাঝে কোনো কমা নেই। জাভাস্ক্রিপ্ট অ্যারের উপাদানগুলোকে আলাদা করতে কমা ব্যবহার করা বাধ্যতামূলক।
+
+---
+
+### সমাধানকৃত কোড (Fixed Code)
+
+নিচে সম্পূর্ণ সঠিক কোডটি দেওয়া হলো। আপনি এটি কপি করে সরাসরি ব্যবহার করতে পারেন:
+
+```html
 <!DOCTYPE html>
 <html lang="bn">
 
@@ -154,15 +178,14 @@
             <div class="quiz-header">
                 <h2 id="question">প্রশ্ন লোড হচ্ছে...</h2>
             </div>
-            <div id="answer-buttons" class="btn-grid">
-                </div>
+            <div id="answer-buttons" class="btn-grid"></div>
             <div class="actions">
                 <button id="next-btn" class="next-btn hide">পরবর্তী প্রশ্ন</button>
             </div>
         </div>
 
         <div id="score-box" class="score-container hide">
-            <h2>কুইজ সম্পন্ন হয়েছে!</h2>
+            <h2>কুইজ সম্পন্ন হয়েছে!</h2>
             <div class="score-num" id="final-score">0 / 0</div>
             <p id="score-commentary" style="color: var(--text-muted); margin-bottom: 24px;"></p>
             <button id="restart-btn" class="next-btn">আবার খেলুন</button>
@@ -173,105 +196,106 @@
         // জাভাস্ক্রিপ্ট কুইজ ডাটা ও লজিক
         const questions = [
             {
-        question: "A, B ও C তিনটি সেটের জন্য নিচের কোনটি সঠিক নয়?",
-        answers: [
-            { text: "A &cup; (B &cap; C) = (A &cup; B) &cap; (A &cup; C)", correct: false },
-            { text: "A &cap; (B &cup; C) = (A &cap; B) &cup; (A &cap; C)", correct: false },
-            { text: "(A &cup; B)' = A' &cap; B'", correct: false },
-            { text: "(A &cap; B)' = A' &cap; B'", correct: true }
-        ]
-    },
-    {
-        question: "কোনো সমবাহু ত্রিভুজের ক্ষেত্রফল ৪&radic;৩ বর্গ সে.মি. হলে, উহার পরিসীমা কত?",
-        answers: [
-            { text: "১২ সে.মি.", correct: true },
-            { text: "১৫ সে.মি.", correct: false },
-            { text: "৯ সে.মি.", correct: false },
-            { text: "১৮ সে.মি.", correct: false }
-        ]
-    },
-    {
-        question: "যদি f(x) = x<sup>3</sup> + ax<sup>2</sup> - 6x - 9 হয়, তবে 'a' এর কোন মানের জন্য f(-3) = 0 হবে?",
-        answers: [
-            { text: "-2", correct: false },
-            { text: "-1", correct: false },
-            { text: "0", correct: true },
-            { text: "2", correct: false }
-        ]
-    },
-    {
-        question: "৪ জন পুরুষ ও ৫ জন মহিলার মধ্য থেকে ৪ সদস্য বিশিষ্ট একটি উপকমিটি গঠন করতে হবে, যাতে অন্তত ২ জন পুরুষ অন্তর্ভুক্ত থাকে। এটি কত প্রকারে করা যায়?",
-        answers: [
-            { text: "৮০", correct: false },
-            { text: "৭১", correct: false },
-            { text: "৬৫", correct: false },
-            { text: "৮১", correct: true }
-        ]
-    },
-    {
-        question: "একটি মোটরসাইকেল ১২% ক্ষতিতে বিক্রি করা হলো। যদি বিক্রয়মূল্য ১২০০ টাকা বেশি হতো, তাহলে ৮% লাভ হতো। মোটরসাইকেলটির ক্রয়মূল্য কত?",
-        answers: [
-            { text: "৫০০০ টাকা", correct: false },
-            { text: "৫৫০০ টাকা", correct: false },
-            { text: "৬০০০ টাকা", correct: true },
-            { text: "৬৫০০ টাকা", correct: false }
-        ]
-    },
-    {
-        question: "কম্পিউটারের অভ্যন্তরীণ প্রক্রিয়াকরণ এবং নিয়ন্ত্রণের কাজ পরিচালনার জন্য কোন ইউনিট দায়ী?",
-        answers: [
-            { text: "ALU (Arithmetic Logic Unit)", correct: false },
-            { text: "CU (Control Unit)", correct: true },
-            { text: "Memory Unit", correct: false },
-            { text: "Input Unit", correct: false }
-        ]
-    },
-    {
-        question: "নিচের কোনটি কম্পিউটারের প্রাইমারী মেমোরি (Primary Memory)?",
-        answers: [
-            { text: "Hard Disk", correct: false },
-            { text: "SSD", correct: false },
-            { text: "RAM", correct: true },
-            { text: "Magnetic Tape", correct: false }
-        ]
-    },
-    {
-        question: "কম্পিউটারে ডাটা ইনপুট দেওয়ার জন্য বহুল ব্যবহৃত ডিভাইস কোনটি?",
-        answers: [
-            { text: "Monitor", correct: false },
-            { text: "Keyboard", correct: true },
-            { text: "Printer", correct: false },
-            { text: "Speaker", correct: false }
-        ]
-    },
-    {
-        question: "কোন মেমোরিটি উদ্বায়ী বা ভোলাটাইল (Volatile), অর্থাৎ বিদ্যুৎ চলে গেলে ডাটা মুছে যায়?",
-        answers: [
-            { text: "ROM", correct: false },
-            { text: "Hard Disk", correct: false },
-            { text: "RAM", correct: true },
-            { text: "Flash Drive", correct: false }
-        ]
-    },
-    {
-        question: "কম্পিউটার সিস্টেমের মেমোরি এড্রেস এবং কন্ট্রোল সিগন্যাল বহন করার জন্য কোনটি ব্যবহৃত হয়?",
-        answers: [
-            { text: "System Bus", correct: true },
-            { text: "Cache Memory", correct: false },
-            { text: "Register", correct: false },
-            { text: "Port", correct: false }
-        ]
-    },
-    {
-        question: "কোন প্রযুক্তিটি ব্যবহারকারীকে একটি কৃত্রিম ত্রিমাত্রিক (3D) পরিবেশের সাথে মিথস্ক্রিয়া বা ইন্টারঅ্যাক্ট করার সুযোগ দেয়?",
-        answers: [
-            { text: "Augmented Reality (AR)", correct: false },
-            { text: "Virtual Reality (VR)", correct: true },
-            { text: "Artificial Intelligence (AI)", correct: false },
-            { text: "Machine Learning (ML)", correct: false }
-        ]
-    }{
-                question: "নিচের কোন ভগ্নাংশটি ৩/৮ হতে বড়?",
+                question: "A, B ও C তিনটি সেটের জন্য নিচের কোনটি সঠিক নয়?",
+                answers: [
+                    { text: "A &cup; (B &cap; C) = (A &cup; B) &cap; (A &cup; C)", correct: false },
+                    { text: "A &cap; (B &cup; C) = (A &cap; B) &cup; (A &cap; C)", correct: false },
+                    { text: "(A &cup; B)' = A' &cap; B'", correct: false },
+                    { text: "(A &cap; B)' = A' &cap; B'", correct: true }
+                ]
+            },
+            {
+                question: "কোনো সমবাহু ত্রিভুজের ক্ষেত্রফল ৪&radic;৩ বর্গ সে.মি. হলে, উহার পরিসীমা কত?",
+                answers: [
+                    { text: "১২ সে.মি.", correct: true },
+                    { text: "১৫ সে.মি.", correct: false },
+                    { text: "৯ সে.মি.", correct: false },
+                    { text: "১৮ সে.মি.", correct: false }
+                ]
+            },
+            {
+                question: "যদি f(x) = x<sup>3</sup> + ax<sup>2</sup> - 6x - 9 হয়, তবে 'a' এর কোন মানের জন্য f(-3) = 0 হবে?",
+                answers: [
+                    { text: "-2", correct: false },
+                    { text: "-1", correct: false },
+                    { text: "0", correct: true },
+                    { text: "2", correct: false }
+                ]
+            },
+            {
+                question: "৪ জন পুরুষ ও ৫ জন মহিলার মধ্য থেকে ৪ সদস্য বিশিষ্ট একটি উপকমিটি গঠন করতে হবে, যাতে অন্তত ২ জন পুরুষ অন্তর্ভুক্ত থাকে। এটি কত প্রকারে করা যায়?",
+                answers: [
+                    { text: "৮০", correct: false },
+                    { text: "৭১", correct: false },
+                    { text: "৬৫", correct: false },
+                    { text: "৮১", correct: true }
+                ]
+            },
+            {
+                question: "একটি মোটরসাইকেল ১২% ক্ষতিতে বিক্রি করা হলো। যদি বিক্রয়মূল্য ১২০০ টাকা বেশি হতো, তাহলে ৮% লাভ হতো। মোটরসাইকেলটির ক্রয়মূল্য কত?",
+                answers: [
+                    { text: "৫০০০ টাকা", correct: false },
+                    { text: "৫৫০০ টাকা", correct: false },
+                    { text: "৬০০০ টাকা", correct: true },
+                    { text: "৬৫০০ টাকা", correct: false }
+                ]
+            },
+            {
+                question: "কম্পিউটারের অভ্যন্তরীণ প্রক্রিয়াকরণ এবং নিয়ন্ত্রণের কাজ পরিচালনার জন্য কোন ইউনিট দায়ী?",
+                answers: [
+                    { text: "ALU (Arithmetic Logic Unit)", correct: false },
+                    { text: "CU (Control Unit)", correct: true },
+                    { text: "Memory Unit", correct: false },
+                    { text: "Input Unit", correct: false }
+                ]
+            },
+            {
+                question: "নিচের কোনটি কম্পিউটারের প্রাইমারী মেমোরি (Primary Memory)?",
+                answers: [
+                    { text: "Hard Disk", correct: false },
+                    { text: "SSD", correct: false },
+                    { text: "RAM", correct: true },
+                    { text: "Magnetic Tape", correct: false }
+                ]
+            },
+            {
+                question: "কম্পিউটারে ডাটা ইনপুট দেওয়ার জন্য বহুল ব্যবহৃত ডিভাইস কোনটি?",
+                answers: [
+                    { text: "Monitor", correct: false },
+                    { text: "Keyboard", correct: true },
+                    { text: "Printer", correct: false },
+                    { text: "Speaker", correct: false }
+                ]
+            },
+            {
+                question: "কোন মেমোরিটি উদ্বায়ী বা ভোলাটাইল (Volatile), অর্থাৎ বিদ্যুৎ চলে গেলে ডাটা মুছে যায়?",
+                answers: [
+                    { text: "ROM", correct: false },
+                    { text: "Hard Disk", correct: false },
+                    { text: "RAM", correct: true },
+                    { text: "Flash Drive", correct: false }
+                ]
+            },
+            {
+                question: "কম্পিউটার সিস্টেমের মেমোরি এড্রেস এবং কন্ট্রোল সিগন্যাল বহন করার জন্য কোনটি ব্যবহৃত হয়?",
+                answers: [
+                    { text: "System Bus", correct: true },
+                    { text: "Cache Memory", correct: false },
+                    { text: "Register", correct: false },
+                    { text: "Port", correct: false }
+                ]
+            },
+            {
+                question: "কোন প্রযুক্তিটি ব্যবহারকারীকে একটি কৃত্রিম ত্রিমাত্রিক (3D) পরিবেশের সাথে মিথস্ক্রিয়া বা ইন্টারঅ্যাক্ট করার সুযোগ দেয়?",
+                answers: [
+                    { text: "Augmented Reality (AR)", correct: false },
+                    { text: "Virtual Reality (VR)", correct: true },
+                    { text: "Artificial Intelligence (AI)", correct: false },
+                    { text: "Machine Learning (ML)", correct: false }
+                ]
+            }, // <-- এখানে কমাটি বসানো হয়েছে
+            {
+                question: "নিচের কোন ভগ্নাংশটি ৩/৮ হতে বড়?",
                 answers: [
                     { text: "৩৩/৫০", correct: true },
                     { text: "৪/১১", correct: false },
@@ -280,7 +304,7 @@
                 ]
             },
             {
-                question: "বার্ষিক ৫% হার মুনাফায় ৪০০ টাকার ২ বছরের চক্রবৃদ্ধি মূলধন কত?",
+                question: "বার্ষিক ৫% হার মুনাফায় ৪০০ টাকার ২ বছরের চক্রবৃদ্ধি মূলধন কত?",
                 answers: [
                     { text: "৪৪০ টাকা", correct: false },
                     { text: "৪৪১ টাকা", correct: true },
@@ -289,7 +313,7 @@
                 ]
             },
             {
-                question: "১০০ হতে বড় দুইটি পূর্ণসংখ্যার যোগফল ৩০০ হলে সংখ্যা দুইটির অনুপাত কোনটি হতে পারে না?",
+                question: "১০০ হতে বড় দুইটি পূর্ণসংখ্যার যোগফল ৩০০ হলে সংখ্যা দুইটির অনুপাত কোনটি হতে পারে না?",
                 answers: [
                     { text: "৪ : ৫", correct: false },
                     { text: "৭ : ৮", correct: false },
@@ -298,7 +322,7 @@
                 ]
             },
             {
-                question: "একটি সমকোণী ত্রিভুজের অতিভুজ ১৫ সে.মি. ও অপর বাহুদ্বয়ের অন্তর ৩ সে.মি.। ত্রিভুজটির ক্ষেত্রফল কত বর্গ সে.মি.?",
+                question: "একটি সমকোণী ত্রিভুজের অতিভুজ ১৫ সে.মি. ও অপর বাহুদ্বয়ের অন্তর ৩ সে.মি.। ত্রিভুজটির ক্ষেত্রফল কত বর্গ সে.মি.?",
                 answers: [
                     { text: "৫৪", correct: true },
                     { text: "৬০", correct: false },
@@ -307,7 +331,7 @@
                 ]
             },
             {
-                question: "৫টি সংখ্যার গড় ৮৫। তাদের মধ্যে ৩টি সংখ্যার গড় ৯৭ হলে, অবশিষ্ট ২টি সংখ্যার গড় কত?",
+                question: "৫টি সংখ্যার গড় ৮৫। তাদের মধ্যে ৩টি সংখ্যার গড় ৯৭ হলে, অবশিষ্ট ২টি সংখ্যার গড় কত?",
                 answers: [
                     { text: "৬৫", correct: false },
                     { text: "৬৭", correct: true },
@@ -316,7 +340,7 @@
                 ]
             },
             {
-                question: "যদি A = {x &in; N : x<sup>2</sup> - 5x + 6 = 0} এবং B = {2, 4} হয়, তবে A &cup; B কত?",
+                question: "যদি A = {x &in; N : x<sup>2</sup> - 5x + 6 = 0} এবং B = {2, 4} হয়, তবে A &cup; B কত?",
                 answers: [
                     { text: "{2, 3}", correct: false },
                     { text: "{2, 4}", correct: false },
@@ -343,7 +367,7 @@
                 ]
             },
             {
-                question: "৬ জন খেলোয়াড়কে সমান সংখ্যক দুইটি দলে কত উপায়ে ভাগ করা যায়?",
+                question: "৬ জন খেলোয়াড়কে সমান সংখ্যক দুইটি দলে কত উপায়ে ভাগ করা যায়?",
                 answers: [
                     { text: "১০", correct: true },
                     { text: "১৫", correct: false },
@@ -352,7 +376,7 @@
                 ]
             },
             {
-                question: "৮ জন লোক একটি কাজ ১২ দিনে করতে পারে। ২ জন লোক কমিয়ে দিলে কাজটি সম্পন্ন করতে শতকরা কত দিন বেশি লাগবে?",
+                question: "৮ জন লোক একটি কাজ ১২ দিনে করতে পারে। ২ জন লোক কমিয়ে দিলে কাজটি সম্পন্ন করতে শতকরা কত দিন বেশি লাগবে?",
                 answers: [
                     { text: "১৬.৬৬%", correct: false },
                     { text: "২৫%", correct: false },
@@ -361,7 +385,7 @@
                 ]
             },
             {
-                question: "একটি থলিতে ৪টি লাল, ৫টি সাদা ও６টি কালো বল আছে। দৈবভাবে একটি বল নেওয়া হলে বলটি লাল বা কালো হওয়ার সম্ভাবনা কত?",
+                question: "একটি থলিতে ৪টি লাল, ৫টি সাদা ও６টি কালো বল আছে। দৈবভাবে একটি বল নেওয়া হলে বলটি লাল বা কালো হওয়ার সম্ভাবনা কত?",
                 answers: [
                     { text: "১/৩", correct: false },
                     { text: "২/৩", correct: true },
@@ -438,7 +462,7 @@
                 if (button.dataset.correct === "true") {
                     button.classList.add("correct");
                 }
-                button.disabled = true; // একবার ক্লিক করার পর বাকি বাটন লক করে দেওয়া
+                button.disabled = true;
             });
 
             nextButton.classList.remove("hide");
@@ -454,9 +478,9 @@
 
             const passRate = score / questions.length;
             if (passRate === 1) {
-                scoreCommentary.innerHTML = "চমৎকার! আপনি সব প্রশ্নের সঠিক উত্তর দিয়েছেন।";
+                scoreCommentary.innerHTML = "চমৎকার! আপনি সব প্রশ্নের সঠিক উত্তর দিয়েছেন।";
             } else if (passRate >= 0.7) {
-                scoreCommentary.innerHTML = "খুব ভালো হয়েছে! আপনার জ্ঞান বেশ ভালো।";
+                scoreCommentary.innerHTML = "খুব ভালো হয়েছে! আপনার জ্ঞান বেশ ভালো।";
             } else {
                 scoreCommentary.innerHTML = "আরেকটু চেষ্টা করুন এবং আবার খেলুন!";
             }
@@ -479,3 +503,5 @@
 </body>
 
 </html>
+
+```
