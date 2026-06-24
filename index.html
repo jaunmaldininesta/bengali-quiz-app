@@ -177,105 +177,106 @@
         // জাভাস্ক্রিপ্ট কুইজ ডাটা ও লজিক
         // এখানে আপনি নিজের ইচ্ছেমতো প্রশ্ন ও উত্তর পরিবর্তন করতে পারেন
         const questions = [
-            {
-                question: "নিচের কোন ভগ্নাংশটি $\\frac{৩}{৮}$ হতে বড়?",
-                answers: [
-                    { text: "$\\frac{৩৩}{৫০}$", correct: true },
-                    { text: "$\\frac{৪}{১১}$", correct: false },
-                    { text: "$\\frac{৫}{১৬}$", correct: false },
-                    { text: "$\\frac{২৯}{৮০}$", correct: false }
-                ]
-            },
-            {
-                question: "বার্ষিক ৫% হার মুনাফায় ৪০০ টাকার ২ বছরের চক্রবৃদ্ধি মূলধন কত?",
-                answers: [
-                    { text: "৪৪০ টাকা", correct: false },
-                    { text: "৪৪১ টাকা", correct: true },
-                    { text: "৪৪৫ tobacco", correct: false },
-                    { text: "৪৫০ টাকা", correct: false }
-                ]
-            },
-            {
-                question: "১০০ হতে বড় দুইটি পূর্ণসংখ্যার যোগফল ৩০০ হলে সংখ্যা দুইটির অনুপাত কোনটি হতে পারে না?",
-                answers: [
-                    { text: "৪ : ৫", correct: false },
-                    { text: "৭ : ৮", correct: false },
-                    { text: "১১ : ১৩", correct: false },
-                    { text: "৫ : ৭", correct: true }
-                ]
-            },
-            {
-                question: "একটি সমকোণী ত্রিভুজের অতিভুজ ১৫ সে.মি. ও অপর বাহুদ্বয়ের অন্তর ৩ সে.মি.। ত্রিভুজটির ক্ষেত্রফল কত বর্গ সে.মি.?",
-                answers: [
-                    { text: "৫৪", correct: true },
-                    { text: "৬০", correct: false },
-                    { text: "৮০", correct: false },
-                    { text: "১০৮", correct: false }
-                ]
-            },
-            {
-                question: "৫টি সংখ্যার গড় ৮৫। তাদের মধ্যে ৩টি সংখ্যার গড় ৯৭ হলে, অবশিষ্ট ২টি সংখ্যার গড় কত?",
-                answers: [
-                    { text: "৬৫", correct: false },
-                    { text: "৬৭", correct: true },
-                    { text: "৭৩", correct: false },
-                    { text: "৭৫", correct: false }
-                ]
-            },
-            {
-                question: "যদি $A = \\{x \\in \\mathbb{N} : x^2 - 5x + 6 = 0\\}$ এবং $B = \\{2, 4\\}$ হয়, তবে $A \\cup B$ কত?",
-                answers: [
-                    { text: "$\\{2, 3\\}$", correct: false },
-                    { text: "$\\{2, 4\\}$", correct: false },
-                    { text: "$\\{2, 3, 4\\}$", correct: true },
-                    { text: "$\\{1, 2, 3, 4\\}$", correct: false }
-                ]
-            },
-            {
-                question: "$\\frac{1}{2} \\times 2^{x-3} + 1 = 5$ হলে x এর মান কত?",
-                answers: [
-                    { text: "3", correct: false },
-                    { text: "4", correct: false },
-                    { text: "5", correct: false },
-                    { text: "6", correct: true }
-                ]
-            },
-            {
-                question: "$log_{\\sqrt{8}}x = 3\\frac{1}{3}$ হলে x এর মান কত?",
-                answers: [
-                    { text: "32", correct: true },
-                    { text: "4", correct: false },
-                    { text: "3", correct: false },
-                    { text: "6", correct: false }
-                ]
-            },
-            {
-                question: "৬ জন খেলোয়াড়কে সমান সংখ্যক দুইটি দলে কত উপায়ে ভাগ করা যায়?",
-                answers: [
-                    { text: "১০", correct: true },
-                    { text: "১৫", correct: false },
-                    { text: "২০", correct: false },
-                    { text: "৩০", correct: false }
-                ]
-            },
-            {
-                question: "৮ জন লোক একটি কাজ ১২ দিনে করতে পারে। ২ জন লোক কমিয়ে দিলে কাজটি সম্পন্ন করতে শতকরা কত দিন বেশি লাগবে?",
-                answers: [
-                    { text: "১৬.৬৬%", correct: false },
-                    { text: "২৫%", correct: false },
-                    { text: "৩৩.৩৩%", correct: true },
-                    { text: "৫০%", correct: false }
-                ]
-            },
-            {
-                question: "একটি থলিতে ৪টি লাল, ৫টি সাদা ও ৬টি কালো বল আছে। দৈবভাবে একটি বল নেওয়া হলে বলটি লাল বা কালো হওয়ার সম্ভাবনা কত?",
-                answers: [
-                    { text: "$\\frac{১}{৩}$", correct: false },
-                    { text: "$\\frac{২}{৩}$", correct: true },
-                    { text: "$\\frac{৪}{১৫}$", correct: false },
-                    { text: "$\\frac{২}{৫}$", correct: false }
-                ]
-            }
+    {
+        question: "নিচের কোন ভগ্নাংশটি ৩/৮ হতে বড়?",
+        answers: [
+            { text: "৩৩/৫০", correct: true },
+            { text: "৪/১১", correct: false },
+            { text: "৫/১৬", correct: false },
+            { text: "২৯/৮০", correct: false }
+        ]
+    },
+    {
+        question: "বার্ষিক ৫% হার মুনাফায় ৪০০ টাকার ২ বছরের চক্রবৃদ্ধি মূলধন কত?",
+        answers: [
+            { text: "৪৪০ টাকা", correct: false },
+            { text: "৪৪৪১ টাকা", correct: true },
+            { text: "৪৪৫ টাকা", correct: false },
+            { text: "৪৫০ টাকা", correct: false }
+        ]
+    },
+    {
+        question: "১০০ হতে বড় দুইটি পূর্ণসংখ্যার যোগফল ৩০০ হলে সংখ্যা দুইটির অনুপাত কোনটি হতে পারে না?",
+        answers: [
+            { text: "৪ : ৫", correct: false },
+            { text: "৭ : ৮", correct: false },
+            { text: "১১ : ১৩", correct: false },
+            { text: "৫ : font", correct: true }
+        ]
+    },
+    {
+        question: "একটি সমকোণী ত্রিভুজের অতিভুজ ১৫ সে.মি. ও অপর বাহুদ্বয়ের অন্তর ৩ সে.মি.। ত্রিভুজটির ক্ষেত্রফল কত বর্গ সে.মি.?",
+        answers: [
+            { text: "৫৪", correct: true },
+            { text: "৬০", correct: false },
+            { text: "৮০", correct: false },
+            { text: "১০৮", correct: false }
+        ]
+    },
+    {
+        question: "৫টি সংখ্যার গড় ৮৫। তাদের মধ্যে ৩টি সংখ্যার গড় ৯৭ হলে, অবশিষ্ট ২টি সংখ্যার গড় কত?",
+        answers: [
+            { text: "৬৫", correct: false },
+            { text: "৬৭", correct: true },
+            { text: "৭৩", correct: false },
+            { text: "৭৫", correct: false }
+        ]
+    },
+    {
+        question: "যদি A = {x &in; N : x<sup>2</sup> - 5x + 6 = 0} এবং B = {2, 4} হয়, তবে A &cup; B কত?",
+        answers: [
+            { text: "{2, 3}", correct: false },
+            { text: "{2, 4}", correct: false },
+            { text: "{2, 3, 4}", correct: true },
+            { text: "{1, 2, 3, 4}", correct: false }
+        ]
+    },
+    {
+        question: "&frac12; &times; 2<sup>x-3</sup> + 1 = 5 হলে x এর মান কত?",
+        answers: [
+            { text: "3", correct: false },
+            { text: "4", correct: false },
+            { text: "5", correct: false },
+            { text: "6", correct: true }
+        ]
+    },
+    {
+        question: "log<sub>&radic;8</sub>x = 3<sup>1</sup>&frasl;<sub>3</sub> হলে x এর মান কত?",
+        answers: [
+            { text: "32", correct: true },
+            { text: "4", correct: false },
+            { text: "3", correct: false },
+            { text: "6", correct: false }
+        ]
+    },
+    {
+        question: "৬ জন খেলোয়াড়কে সমান সংখ্যক দুইটি দলে কত উপায়ে ভাগ করা যায়?",
+        answers: [
+            { text: "১০", correct: true },
+            { text: "১৫", correct: false },
+            { text: "২০", correct: false },
+            { text: "৩০", correct: false }
+        ]
+    },
+    {
+        question: "৮ জন লোক একটি কাজ ১২ দিনে করতে পারে। ২ জন লোক কমিয়ে দিলে কাজটি সম্পন্ন করতে শতকরা কত দিন বেশি লাগবে?",
+        answers: [
+            { text: "১৬.৬৬%", correct: false },
+            { text: "২৫%", correct: false },
+            { text: "৩৩.৩৩%", correct: true },
+            { text: "৫০%", correct: false }
+        ]
+    },
+    {
+        question: "একটি থলিতে ৪টি লাল, ৫টি সাদা ও ৬টি কালো বল আছে। দৈবভাবে একটি বল নেওয়া হলে বলটি লাল বা কালো হওয়ার সম্ভাবনা কত?",
+        answers: [
+            { text: "১/৩", correct: false },
+            { text: "২/৩", correct: true },
+            { text: "৪/১৫", correct: false },
+            { text: "২/৫", correct: false }
+        ]
+    }
+];
         ];
 
         const quizBox = document.getElementById("quiz-box");
