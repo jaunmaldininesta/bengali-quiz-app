@@ -176,11 +176,11 @@
     <div class="quiz-container">
         <div id="level-box" class="level-container">
             <h2>কুইজ লেভেল নির্বাচন করুন</h2>
-            <p class="subtitle">আপনার পছন্দের লেভেলটি বেছে নিয়ে খেলা শুরু করুন</p>
+            <p class="subtitle">আপনার পছন্দের লেভেলটি বেছে নিয়ে খেলা শুরু করুন</p>
             <div class="level-menu">
                 <div class="level-card" onclick="selectLevel('level1')">
                     <h3>লেভেল ১ (Level 1)</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">গণিত ও কম্পিউটার বেসিকস</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">সাধারণ জ্ঞান, গণিত ও কম্পিউটার</p>
                 </div>
                 <div class="level-card" onclick="selectLevel('level2')">
                     <h3>লেভেল ২ (Level 2)</h3>
@@ -222,95 +222,95 @@
         const quizDatabase = {
             level1: [
                 {
-    question: "২৬. নিম্নের প্রশ্নবোধক চিহ্নে কোন সংখ্যাটি বসবে?",
-    answers: [
-      { text: "ক. ৮০", correct: false },
-      { text: "খ. ১১৪", correct: false },
-      { text: "গ. ১০৮", correct: true },
-      { text: "ঘ. কোনটিই নয়", correct: false }
-    ]
-  },
-  {
-    question: "২৭. সঠিক বানান কোনটি, চিহ্নিত করুন।",
-    answers: [
-      { text: "ক. Consciencious", correct: false },
-      { text: "খ. Conscientcious", correct: false },
-      { text: "গ. Consciencitious", correct: false },
-      { text: "ঘ. Conscientious", correct: true }
-    ]
-  },
-  {
-    question: "২৮. একটি কমিটিতে পুরুষ এবং মহিলার সংখ্যা একটি অনুপাতে ৩ : ২ হলে এবং মহিলা সংখ্যা ২৫ জন হলে পুরুষের সংখ্যা কত? [নোট: প্রশ্নটি অসংগতিপূর্ণ]",
-    answers: [
-      { text: "ক. ৩০", correct: false },
-      { text: "খ. ৩৫", correct: false },
-      { text: "গ. ৪০", correct: false },
-      { text: "ঘ. ৪৫", correct: false }
-    ]
-  },
-  {
-    question: "২৯. 'Ubiquitous' শব্দটির সমার্থক শব্দ কোনটি চিহ্নিত করুন।",
-    answers: [
-      { text: "ক. Scarce", correct: false },
-      { text: "খ. Abundant", correct: false },
-      { text: "গ. Widespread", correct: true },
-      { text: "ঘ. Limited", correct: false }
-    ]
-  },
-  {
-    question: "৩০. পাঁচটি ধারাবাহিক পূর্ণসংখ্যার গড় হলো ১৫ সবচেয়ে বড় পূর্ণ সংখ্যা কত? [/সঠিক উত্তর: ১৭/]",
-    answers: [
-      { text: "ক. ১৮", correct: false },
-      { text: "খ. ২০", correct: false },
-      { text: "গ. ২২", correct: false },
-      { text: "ঘ. ২৪", correct: false }
-    ]
-  },
-  {
-    question: "৩১. 'Animal Liberation' গ্রন্থটির রচয়িতা কে?",
-    answers: [
-      { text: "ক. হেগেল", correct: false },
-      { text: "খ. কান্ট", correct: false },
-      { text: "গ. বেন্থাম", correct: false },
-      { text: "ঘ. পিটার সিঙ্গার", correct: true }
-    ]
-  },
-  {
-    question: "৩২. কোন শ্রেণির ক্রিয়া নীতিবিদ্যার আলোচ্য বিষয়ের অন্তর্ভুক্ত?",
-    answers: [
-      { text: "ক. নৈতিকতা-নিরপেক্ষ ক্রিয়া", correct: false },
-      { text: "খ. সামাজিক ক্রিয়া", correct: false },
-      { text: "গ. ঐচ্ছিক ক্রিয়া", correct: true },
-      { text: "ঘ. ইচ্ছা-নিরপেক্ষ ক্রিয়া", correct: false }
-    ]
-  },
-  {
-    question: "৩৩. বাংলাদেশের 'নব্য-নৈতিকতার' প্রবর্তক হলেন-",
-    answers: [
-      { text: "ক. মোহাম্মদ বরকতুল্লাহ", correct: false },
-      { text: "খ. জি. সি. দেব", correct: false },
-      { text: "গ. আরজ আলী মাতুব্বর", correct: true },
-      { text: "ঘ. আব্দুল মতীন", correct: false }
-    ]
-  },
-  {
-    question: "৩৪. নিচের কোনটি সুশাসনের মূলনীতি?",
-    answers: [
-      { text: "ক. স্বচ্ছতা ও জবাবদিহিতা", correct: true },
-      { text: "খ. কর্তৃত্ববাদী শাসন", correct: false },
-      { text: "গ. কেন্দ্রীভূত সিদ্ধান্ত গ্রহণ", correct: false },
-      { text: "ঘ. স্বজনপ্রীতি ও পক্ষপাতিত্ব", correct: false }
-    ]
-  },
-  {
-    question: "৩৫. \"মানুষ হও এবং মরে বাঁচ।\" এটি কার উক্তি?",
-    answers: [
-      { text: "ক. প্লেটো", correct: false },
-      { text: "খ. হেগেল", correct: true },
-      { text: "গ. জি. ই. মুর", correct: false },
-      { text: "ঘ. রাসেল", correct: false }
-    ]
-  }
+                    question: "২৬. NIMNRE প্রশ্নবোধক চিহ্নে কোন সংখ্যাটি বসবে?",
+                    answers: [
+                        { text: "ক. ৮০", correct: false },
+                        { text: "খ. ১১৪", correct: false },
+                        { text: "গ. ১০৮", correct: true },
+                        { text: "ঘ. কোনটিই নয়", correct: false }
+                    ]
+                },
+                {
+                    question: "২৭. সঠিক বানান কোনটি, চিহ্নিত করুন।",
+                    answers: [
+                        { text: "ক. Consciencious", correct: false },
+                        { text: "খ. Conscientcious", correct: false },
+                        { text: "গ. Consciencitious", correct: false },
+                        { text: "ঘ. Conscientious", correct: true }
+                    ]
+                },
+                {
+                    question: "২৮. একটি কমিটিতে পুরুষ এবং মহিলার সংখ্যা একটি অনুপাতে ৩ : ২ হলে এবং মহিলা সংখ্যা ২৫ জন হলে পুরুষের সংখ্যা কত? [নোট: প্রশ্নটি অসংগতিপূর্ণ]",
+                    answers: [
+                        { text: "ক. ৩০", correct: false },
+                        { text: "খ. ৩৫", correct: false },
+                        { text: "গ. ৪০", correct: false },
+                        { text: "ঘ. ৪৫", correct: false }
+                    ]
+                },
+                {
+                    question: "২৯. 'Ubiquitous' শব্দটির সমার্থক শব্দ কোনটি চিহ্নিত করুন।",
+                    answers: [
+                        { text: "ক. Scarce", correct: false },
+                        { text: "খ. Abundant", correct: false },
+                        { text: "গ. Widespread", correct: true },
+                        { text: "ঘ. Limited", correct: false }
+                    ]
+                },
+                {
+                    question: "৩০. পাঁচটি ধারাবাহিক পূর্ণসংখ্যার গড় হলো ১৫ সবচেয়ে বড় পূর্ণ সংখ্যা কত? [/সঠিক উত্তর: ১৭/]",
+                    answers: [
+                        { text: "ক. ১৮", correct: false },
+                        { text: "খ. ২০", correct: false },
+                        { text: "গ. ২২", correct: false },
+                        { text: "ঘ. ২৪", correct: false }
+                    ]
+                },
+                {
+                    question: "৩১. 'Animal Liberation' ग्रंथটির রচয়িতা কে?",
+                    answers: [
+                        { text: "ক. হেগেল", correct: false },
+                        { text: "খ. কান্ট", correct: false },
+                        { text: "গ. বেন্থাম", correct: false },
+                        { text: "ঘ. পিটার সিঙ্গার", correct: true }
+                    ]
+                },
+                {
+                    question: "৩২. কোন শ্রেণির ক্রিয়া নীতিবিদ্যার আলোচ্য বিষয়ের অন্তর্ভুক্ত?",
+                    answers: [
+                        { text: "ক. নৈতিকতা-নিরপেক্ষ ক্রিয়া", correct: false },
+                        { text: "খ. সামাজিক ক্রিয়া", correct: false },
+                        { text: "গ. ঐচ্ছিক ক্রিয়া", correct: true },
+                        { text: "ঘ. ইচ্ছা-নিরপেক্ষ ক্রিয়া", correct: false }
+                    ]
+                },
+                {
+                    question: "৩৩. বাংলাদেশের 'নব্য-নৈতিকতার' প্রবর্তক হলেন-",
+                    answers: [
+                        { text: "ক. মোহাম্মদ বরকতুল্লাহ", correct: false },
+                        { text: "খ. জি. সি. দেব", correct: false },
+                        { text: "গ. আরজ আলী মাতুব্বর", correct: true },
+                        { text: "ঘ. আব্দুল মতীন", correct: false }
+                    ]
+                },
+                {
+                    question: "৩৪. নিচের কোনটি সুশাসনের মূলনীতি?",
+                    answers: [
+                        { text: "ক. স্বচ্ছতা ও জবাবদিহিতা", correct: true },
+                        { text: "খ. কর্তৃত্ববাদী শাসন", correct: false },
+                        { text: "গ. কেন্দ্রীভূত সিদ্ধান্ত গ্রহণ", correct: false },
+                        { text: "ঘ. স্বজনপ্রীতি ও পক্ষপাতিত্ব", correct: false }
+                    ]
+                },
+                {
+                    question: "৩৫. \"মানুষ হও এবং মরে বাঁচ।\" এটি কার উক্তি?",
+                    answers: [
+                        { text: "ক. প্লেটো", correct: false },
+                        { text: "খ. হেগেল", correct: true },
+                        { text: "গ. জি. ই. মুর", correct: false },
+                        { text: "ঘ. রাসেল", correct: false }
+                    ]
+                }, // এখানে কমা (,) মিসিং ছিল যা ঠিক করা হয়েছে
                 {
                     question: "A, B ও C তিনটি সেটের জন্য নিচের কোনটি সঠিক নয়?",
                     answers: [
@@ -429,7 +429,7 @@
                     ]
                 },
                 {
-                    question: "১০০ হতে বড় দুইটি পূর্ণসংখ্যার যোগফল ৩০০ হলে সংখ্যা দুইটির অনুপাত কোনটি হতে পারে না?",
+                    question: "১০০ হতে বড় cavity পূর্ণসংখ্যার যোগফল ৩০০ হলে সংখ্যা দুইটির অনুপাত কোনটি হতে পারে না?",
                     answers: [
                         { text: "৪ : ৫", correct: false },
                         { text: "৭ : ৮", correct: false },
@@ -501,7 +501,7 @@
                     ]
                 },
                 {
-                    question: "একটি থলিতে ৪টি লাল, ৫টি সাদা ও６টি কালো বল আছে। দৈবভাবে একটি বল নেওয়া হলে বলটি লাল বা কালো হওয়ার সম্ভাবনা কত?",
+                    question: "একটি থলিতে ৪টি লাল, ৫টি সাদা ও ৬টি কালো বল আছে। দৈবভাবে একটি বল নেওয়া হলে বলটি লাল বা কালো হওয়ার সম্ভাবনা কত?",
                     answers: [
                         { text: "১/৩", correct: false },
                         { text: "২/৩", correct: true },
@@ -559,14 +559,12 @@
         function selectLevel(levelKey) {
             currentLevel = levelKey;
             
-            // ডাটাবেজ থেকে আসল অবজেক্টগুলোর একটি 'Deep Copy' তৈরি করছি যাতে মূল ডাটা নষ্ট না হয়
             let originalQuestions = quizDatabase[levelKey] || [];
             if(originalQuestions.length === 0) {
-                alert("এই লেভেলে এখনো কোনো প্রশ্ন যুক্ত করা হয়নি!");
+                alert("এই লেভেলে এখনো কোনো প্রশ্ন যুক্ত করা হয়নি!");
                 return;
             }
             
-            // ১. সম্পূর্ণ লেভেলের সব প্রশ্নকে ওলটপালট (Shuffle) করা হচ্ছে
             allLevelQuestions = shuffleArray(JSON.parse(JSON.stringify(originalQuestions)));
 
             currentChunkIndex = 0; 
@@ -597,9 +595,9 @@
             currentRoundTitle.innerHTML = `লেভেল ${currentLevel.replace('level','')} - রাউন্ড ${currentChunkIndex + 1}`;
             questionCounter.innerHTML = `${currentQuestionIndex + 1} / ${activeRoundQuestions.length}`;
             
-            questionElement.innerHTML = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+            // সিরিয়াল নাম্বার ডায়নামিক করার জন্য আলাদা ভেরিয়েবল রাখা হলো
+            questionElement.innerHTML = `${currentQuestionIndex + 1}. ${currentQuestion.question.replace(/^\d+\.\s*/, '')}`;
 
-            // ২. প্রদর্শনের পূর্বে উত্তর বা অপশনগুলোকে ওলটপালট (Shuffle) করা হচ্ছে
             let shuffledAnswers = shuffleArray([...currentQuestion.answers]);
 
             shuffledAnswers.forEach(answer => {
@@ -666,7 +664,6 @@
             } else {
                 actionStepBtn.innerHTML = "আবার খেলুন (নতুন শাফল)";
                 actionStepBtn.onclick = () => {
-                    // একই লেভেল আবার খেললে প্রশ্ন ও উত্তর নতুন করে পুনরায় শাফল হবে
                     selectLevel(currentLevel);
                 };
             }
@@ -677,7 +674,7 @@
             } else if (passRate >= 0.7) {
                 scoreCommentary.innerHTML = "খুব ভালো হয়েছে! আপনার স্কোর বেশ চমৎকার।";
             } else {
-                scoreCommentary.innerHTML = "আরেকটু চেষ্টা করুন এবং দক্ষতা বাড়ান!";
+                scoreCommentary.innerHTML = "আরেকটু চেষ্টা করুন এবং দক্ষতা বাড়ান!";
             }
         }
 
