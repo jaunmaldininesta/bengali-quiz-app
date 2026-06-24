@@ -195,8 +195,8 @@
             </div>
             <div class="quiz-header">
                 <div style="display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 5px;">
-                    <span id="current-round-title">রাউন্ড ১</span>
-                    <span id="question-counter">১/৪০</span>
+                    <span id="current-round-title">লেভেল ১</span>
+                    <span id="question-counter">০/০</span>
                 </div>
                 <h2 id="question">প্রশ্ন লোড হচ্ছে...</h2>
             </div>
@@ -208,12 +208,12 @@
         </div>
 
         <div id="score-box" class="score-container hide">
-            <h2 id="score-title">রাউন্ড সম্পন্ন হয়েছে!</h2>
+            <h2 id="score-title">কুইজ সম্পন্ন হয়েছে!</h2>
             <div class="score-num" id="final-score">0 / 0</div>
             <p id="score-commentary" style="color: var(--text-muted); margin-bottom: 24px;"></p>
             <div style="display: flex; gap: 10px; justify-content: center;">
                 <button id="main-menu-btn" class="next-btn" style="background-color: #64748b;">প্রধান মেনু</button>
-                <button id="action-step-btn" class="next-btn">পরবর্তী ধাপ</button>
+                <button id="action-step-btn" class="next-btn">আবার খেলুন</button>
             </div>
         </div>
     </div>
@@ -222,15 +222,16 @@
         const quizDatabase = {
             level1: [
                 {
-                    question: "২৬. NIMNRE প্রশ্নবোধক চিহ্নে কোন সংখ্যাটি বসবে?",
+                    question: "NIMNRE প্রশ্নবোধক চিহ্নে কোন সংখ্যাটি বসবে?",
                     answers: [
                         { text: "ক. ৮০", correct: false },
                         { text: "খ. ১১৪", correct: false },
                         { text: "গ. ১০৮", correct: true },
                         { text: "ঘ. কোনটিই নয়", correct: false }
                     ]
-                },{
-                    question: "৩৬. জাতীয় শুদ্ধাচার কৌশল নীতিমালা কত সালে পাশ হয়?",
+                },
+                {
+                    question: "জাতীয় শুদ্ধাচার কৌশল নীতিমালা কত সালে পাশ হয়?",
                     answers: [
                         { text: "ক. ২০১০", correct: false },
                         { text: "খ. ২০১১", correct: false },
@@ -239,7 +240,7 @@
                     ]
                 },
                 {
-                    question: "৩৭. \"দর্শন হচ্ছে ধর্ম ও ধর্ম বিজ্ঞানের মধ্যবর্তী এক অনধিকৃত প্রদেশ।\" উক্তিটি কে করেছেন?",
+                    question: "\"দর্শন হচ্ছে ধর্ম ও ধর্ম বিজ্ঞানের মধ্যবর্তী এক অনধিকৃত প্রদেশ।\" উক্তিটি কে করেছেন?",
                     answers: [
                         { text: "ক. আর. বি. পেরি", correct: false },
                         { text: "খ. প্লেটো", correct: false },
@@ -248,7 +249,7 @@
                     ]
                 },
                 {
-                    question: "৩৮. 'সুশাসন চারটি স্তম্ভের উপর নির্ভরশীল'- এই অভিমত কোন সংস্থা প্রকাশ করে?",
+                    question: "'সুশাসন চারটি স্তম্ভের উপর নির্ভরশীল'- এই অভিমত কোন সংস্থা প্রকাশ করে?",
                     answers: [
                         { text: "ক. জাতিসংঘ", correct: false },
                         { text: "খ. জাতিসংঘের উন্নয়ন কর্মসূচি", correct: false },
@@ -257,42 +258,7 @@
                     ]
                 },
                 {
-                    question: "৩৯. নিচের কোনটি 'SMART Bangladesh' এর উপাদান?",
-                    answers: [
-                        { text: "ক. Smart Democracy", correct: false },
-                        { text: "খ. Smart Politics", correct: false },
-                        { text: "গ. Smart Society", correct: true },
-                        { text: "ঘ. Smart Parliament", correct: false }
-                    ]
-                },{
-                    question: "৩৬. জাতীয় শুদ্ধাচার কৌশল নীতিমালা কত সালে পাশ হয়?",
-                    answers: [
-                        { text: "ক. ২০১০", correct: false },
-                        { text: "খ. ২০১১", correct: false },
-                        { text: "গ. ২০১২", correct: true },
-                        { text: "ঘ. ২০১৮", correct: false }
-                    ]
-                },
-                {
-                    question: "৩৭. \"দর্শন হচ্ছে ধর্ম ও ধর্ম বিজ্ঞানের মধ্যবর্তী এক অনধিকৃত প্রদেশ।\" উক্তিটি কে করেছেন?",
-                    answers: [
-                        { text: "ক. আর. বি. পেরি", correct: false },
-                        { text: "খ. প্লেটো", correct: false },
-                        { text: "গ. সি. ডি. ব্রড", correct: false },
-                        { text: "ঘ. বার্ট্রান্ড রাসেল", correct: true }
-                    ]
-                },
-                {
-                    question: "৩৮. 'সুশাসন চারটি স্তম্ভের উপর নির্ভরশীল'- এই অভিমত কোন সংস্থা প্রকাশ করে?",
-                    answers: [
-                        { text: "ক. জাতিসংঘ", correct: false },
-                        { text: "খ. জাতিসংঘের উন্নয়ন কর্মসূচি", correct: false },
-                        { text: "গ. বিশ্বব্যাংক", correct: true },
-                        { text: "ঘ. এশিয়া উন্নয়ন ব্যাংক", correct: false }
-                    ]
-                },
-                {
-                    question: "৩৯. নিচের কোনটি 'SMART Bangladesh' এর উপাদান?",
+                    question: "নিচের কোনটি 'SMART Bangladesh' এর উপাদান?",
                     answers: [
                         { text: "ক. Smart Democracy", correct: false },
                         { text: "খ. Smart Politics", correct: false },
@@ -301,7 +267,7 @@
                     ]
                 },
                 {
-                    question: "৪০. 'Republic' গ্রন্থটির রচয়িতা কে?",
+                    question: "'Republic' গ্রন্থটির রচয়িতা কে?",
                     answers: [
                         { text: "ক. বার্কলে", correct: false },
                         { text: "খ. জন লক", correct: false },
@@ -310,7 +276,7 @@
                     ]
                 },
                 {
-                    question: "৪১. Which of the following words can be used as a verb?",
+                    question: "Which of the following words can be used as a verb?",
                     answers: [
                         { text: "ক. mobile", correct: false },
                         { text: "খ. sugar", correct: true },
@@ -319,7 +285,7 @@
                     ]
                 },
                 {
-                    question: "৪২. In which sentence 'like' is used as a preposition?",
+                    question: "In which sentence 'like' is used as a preposition?",
                     answers: [
                         { text: "ক. He likes to eat fish.", correct: false },
                         { text: "খ. He laughs like his father does.", correct: false },
@@ -328,7 +294,7 @@
                     ]
                 },
                 {
-                    question: "৪৩. He died following the incident. The underlined word is a/an-",
+                    question: "He died following the incident. The underlined word is a/an-",
                     answers: [
                         { text: "ক. adjective", correct: false },
                         { text: "খ. adverb", correct: false },
@@ -337,7 +303,7 @@
                     ]
                 },
                 {
-                    question: "৪৪. Writing a diary is a very good practice to develop the writing skill. The underlined part is a/an-",
+                    question: "Writing a diary is a very good practice to develop the writing skill. The underlined part is a/an-",
                     answers: [
                         { text: "ক. noun phrase", correct: true },
                         { text: "খ. verbal phrase", correct: false },
@@ -346,7 +312,7 @@
                     ]
                 },
                 {
-                    question: "৪৫. Fill in the blank with the correct word: ... he lay on the ground groaning.",
+                    question: "Fill in the blank with the correct word: ... he lay on the ground groaning.",
                     answers: [
                         { text: "ক. Injured", correct: false },
                         { text: "খ. Injuring", correct: false },
@@ -355,7 +321,7 @@
                     ]
                 },
                 {
-                    question: "৪৬. Find out the meaning of the following phrase: 'By and large'",
+                    question: "Find out the meaning of the following phrase: 'By and large'",
                     answers: [
                         { text: "ক. very large", correct: false },
                         { text: "খ. on the whole", correct: true },
@@ -364,7 +330,7 @@
                     ]
                 },
                 {
-                    question: "৪৭. Choose the best alternative for the underlined. He went back on his promise of voting for me.",
+                    question: "Choose the best alternative for the underlined. He went back on his promise of voting for me.",
                     answers: [
                         { text: "ক. withdrew", correct: true },
                         { text: "খ. forgot", correct: false },
@@ -373,7 +339,7 @@
                     ]
                 },
                 {
-                    question: "৪৮. 'Let the cat out of the bag' means-",
+                    question: "'Let the cat out of the bag' means-",
                     answers: [
                         { text: "ক. bring out a cat from a bag", correct: false },
                         { text: "খ. let a cat move at large", correct: false },
@@ -382,7 +348,7 @@
                     ]
                 },
                 {
-                    question: "৪৯. He is a man to depend on. The underlined part is-",
+                    question: "He is a man to depend on. The underlined part is-",
                     answers: [
                         { text: "ক. a noun phrase", correct: false },
                         { text: "খ. an adjective phrase", correct: true },
@@ -391,7 +357,7 @@
                     ]
                 },
                 {
-                    question: "৫০. His dream that he will be a B.C.S cadre finally came true. The underlined part is-",
+                    question: "His dream that he will be a B.C.S cadre finally came true. The underlined part is-",
                     answers: [
                         { text: "ক. a noun clause", correct: true },
                         { text: "খ. an adjective clause", correct: false },
@@ -400,7 +366,7 @@
                     ]
                 },
                 {
-                    question: "৫১. Which of the following is a correct simple sentence?",
+                    question: "Which of the following is a correct simple sentence?",
                     answers: [
                         { text: "ক. All that glitters is not gold.", correct: false },
                         { text: "খ. All's well that ends well.", correct: false },
@@ -409,7 +375,7 @@
                     ]
                 },
                 {
-                    question: "৫২. Which of the correct complex form of the sentence? 'A corrupt man cannot win the respect of others.'",
+                    question: "Which of the correct complex form of the sentence? 'A corrupt man cannot win the respect of others.'",
                     answers: [
                         { text: "ক. A man who is corrupt cannot respect others.", correct: false },
                         { text: "খ. A man does not respect others who are corrupt.", correct: false },
@@ -418,7 +384,7 @@
                     ]
                 },
                 {
-                    question: "৫৩. Find out the correct positive form of the sentence: 'Who is the better player than Zaman in the team?'",
+                    question: "Find out the correct positive form of the sentence: 'Who is the better player than Zaman in the team?'",
                     answers: [
                         { text: "ক. Is there any other player in this team who is as good as Zaman?", correct: true },
                         { text: "খ. Who is the best player than Zaman in this team?", correct: false },
@@ -427,7 +393,7 @@
                     ]
                 },
                 {
-                    question: "৫৪. Fill in the blank with the correct word: The submarine dipped to avoid ... by the enemy plane.",
+                    question: "Fill in the blank with the correct word: The submarine dipped to avoid ... by the enemy plane.",
                     answers: [
                         { text: "ক. see", correct: false },
                         { text: "খ. seeing", correct: false },
@@ -436,7 +402,7 @@
                     ]
                 },
                 {
-                    question: "৫৫. In fear of ... he escaped elsewhere.",
+                    question: "In fear of ... he escaped elsewhere.",
                     answers: [
                         { text: "ক. arresting", correct: false },
                         { text: "খ. arrested", correct: false },
@@ -445,7 +411,7 @@
                     ]
                 },
                 {
-                    question: "৫৬. I didn't follow who passed by me. It ... Shajib.",
+                    question: "I didn't follow who passed by me. It ... Shajib.",
                     answers: [
                         { text: "ক. were", correct: false },
                         { text: "খ. must be", correct: false },
@@ -454,7 +420,7 @@
                     ]
                 },
                 {
-                    question: "৫৭. Samin is my colleague. I ... him for ten years.",
+                    question: "Samin is my colleague. I ... him for ten years.",
                     answers: [
                         { text: "ক. know", correct: false },
                         { text: "খ. knew", correct: false },
@@ -463,169 +429,7 @@
                     ]
                 },
                 {
-                    question: "৪০. 'Republic' গ্রন্থটির রচয়িতা কে?",
-                    answers: [
-                        { text: "ক. বার্কলে", correct: false },
-                        { text: "খ. জন লক", correct: false },
-                        { text: "গ. ডেককার্ট", correct: false },
-                        { text: "ঘ. প্লেটো", correct: true }
-                    ]
-                },
-                {
-                    question: "৪১. Which of the following words can be used as a verb?",
-                    answers: [
-                        { text: "ক. mobile", correct: false },
-                        { text: "খ. sugar", correct: true },
-                        { text: "গ. media", correct: false },
-                        { text: "ঘ. sand", correct: true }
-                    ]
-                },
-                {
-                    question: "৪২. In which sentence 'like' is used as a preposition?",
-                    answers: [
-                        { text: "ক. He likes to eat fish.", correct: false },
-                        { text: "খ. He laughs like his father does.", correct: false },
-                        { text: "গ. He climbed the tree like a cat.", correct: true },
-                        { text: "ঘ. Like minded people are necessary to start a business.", correct: false }
-                    ]
-                },
-                {
-                    question: "৪৩. He died following the incident. The underlined word is a/an-",
-                    answers: [
-                        { text: "ক. adjective", correct: false },
-                        { text: "খ. adverb", correct: false },
-                        { text: "গ. noun", correct: false },
-                        { text: "ঘ. preposition", correct: true }
-                    ]
-                },
-                {
-                    question: "৪৪. Writing a diary is a very good practice to develop the writing skill. The underlined part is a/an-",
-                    answers: [
-                        { text: "ক. noun phrase", correct: true },
-                        { text: "খ. verbal phrase", correct: false },
-                        { text: "গ. adjective phrase", correct: false },
-                        { text: "ঘ. adverbial phrase", correct: false }
-                    ]
-                },
-                {
-                    question: "৪৫. Fill in the blank with the correct word: ... he lay on the ground groaning.",
-                    answers: [
-                        { text: "ক. Injured", correct: false },
-                        { text: "খ. Injuring", correct: false },
-                        { text: "গ. Having injured", correct: false },
-                        { text: "ঘ. Being injured", correct: true }
-                    ]
-                },
-                {
-                    question: "৪৬. Find out the meaning of the following phrase: 'By and large'",
-                    answers: [
-                        { text: "ক. very large", correct: false },
-                        { text: "খ. on the whole", correct: true },
-                        { text: "গ. far away", correct: false },
-                        { text: "ঘ. the largest one", correct: false }
-                    ]
-                },
-                {
-                    question: "৪৭. Choose the best alternative for the underlined. He went back on his promise of voting for me.",
-                    answers: [
-                        { text: "ক. withdrew", correct: true },
-                        { text: "খ. forgot", correct: false },
-                        { text: "গ. reinforced", correct: false },
-                        { text: "ঘ. support", correct: false }
-                    ]
-                },
-                {
-                    question: "৪৮. 'Let the cat out of the bag' means-",
-                    answers: [
-                        { text: "ক. bring out a cat from a bag", correct: false },
-                        { text: "খ. let a cat move at large", correct: false },
-                        { text: "গ. reveal a secret carelessly", correct: true },
-                        { text: "ঘ. take a pre-cautious steps", correct: false }
-                    ]
-                },
-                {
-                    question: "৪৯. He is a man to depend on. The underlined part is-",
-                    answers: [
-                        { text: "ক. a noun phrase", correct: false },
-                        { text: "খ. an adjective phrase", correct: true },
-                        { text: "গ. an adverbial phrase", correct: false },
-                        { text: "ঘ. a prepositional phrase", correct: false }
-                    ]
-                },
-                {
-                    question: "৫০. His dream that he will be a B.C.S cadre finally came true. The underlined part is-",
-                    answers: [
-                        { text: "ক. a noun clause", correct: true },
-                        { text: "খ. an adjective clause", correct: false },
-                        { text: "গ. an independent clause", correct: false },
-                        { text: "ঘ. a co-ordinate clause", correct: false }
-                    ]
-                },
-                {
-                    question: "৫১. Which of the following is a correct simple sentence?",
-                    answers: [
-                        { text: "ক. All that glitters is not gold.", correct: false },
-                        { text: "খ. All's well that ends well.", correct: false },
-                        { text: "গ. Do or die.", correct: false },
-                        { text: "ঘ. I saw an old man walking past me.", correct: true }
-                    ]
-                },
-                {
-                    question: "৫২. Which of the correct complex form of the sentence? 'A corrupt man cannot win the respect of others.'",
-                    answers: [
-                        { text: "ক. A man who is corrupt cannot respect others.", correct: false },
-                        { text: "খ. A man does not respect others who are corrupt.", correct: false },
-                        { text: "গ. A man who is corrupt cannot win the respect of others.", correct: true },
-                        { text: "ঘ. A man who can win the respect of others cannot be corrupt.", correct: false }
-                    ]
-                },
-                {
-                    question: "৫৩. Find out the correct positive form of the sentence: 'Who is the better player than Zaman in the team?'",
-                    answers: [
-                        { text: "ক. Is there any other player in this team who is as good as Zaman?", correct: true },
-                        { text: "খ. Who is the best player than Zaman in this team?", correct: false },
-                        { text: "গ. Is there any other players in this team who is as good as Zaman?", correct: false },
-                        { text: "ঘ. Are there any other player in this team who are as good as Zaman?", correct: false }
-                    ]
-                },
-                {
-                    question: "৫৪. Fill in the blank with the correct word: The submarine dipped to avoid ... by the enemy plane.",
-                    answers: [
-                        { text: "ক. see", correct: false },
-                        { text: "খ. seeing", correct: false },
-                        { text: "গ. being seen", correct: true },
-                        { text: "ঘ. seen", correct: false }
-                    ]
-                },
-                {
-                    question: "৫৫. In fear of ... he escaped elsewhere.",
-                    answers: [
-                        { text: "ক. arresting", correct: false },
-                        { text: "খ. arrested", correct: false },
-                        { text: "গ. being arrested", correct: false },
-                        { text: "ঘ. having arrested", correct: true }
-                    ]
-                },
-                {
-                    question: "৫৬. I didn't follow who passed by me. It ... Shajib.",
-                    answers: [
-                        { text: "ক. were", correct: false },
-                        { text: "খ. must be", correct: false },
-                        { text: "গ. might be", correct: false },
-                        { text: "ঘ. was", correct: true }
-                    ]
-                },
-                {
-                    question: "৫৭. Samin is my colleague. I ... him for ten years.",
-                    answers: [
-                        { text: "ক. know", correct: false },
-                        { text: "খ. knew", correct: false },
-                        { text: "গ. have known", correct: true },
-                        { text: "ঘ. have been known", correct: false }
-                    ]
-                },
-                {
-                    question: "২৭. সঠিক বানান কোনটি, চিহ্নিত করুন।",
+                    question: "সঠিক বানান কোনটি, চিহ্নিত করুন।",
                     answers: [
                         { text: "ক. Consciencious", correct: false },
                         { text: "খ. Conscientcious", correct: false },
@@ -634,7 +438,7 @@
                     ]
                 },
                 {
-                    question: "২৮. একটি কমিটিতে পুরুষ এবং মহিলার সংখ্যা একটি অনুপাতে ৩ : ২ হলে এবং মহিলা সংখ্যা ২৫ জন হলে পুরুষের সংখ্যা কত? [নোট: প্রশ্নটি অসংগতিপূর্ণ]",
+                    question: "একটি কমিটিতে পুরুষ এবং মহিলার সংখ্যা একটি অনুপাতে ৩ : ২ হলে এবং মহিলা সংখ্যা ২৫ জন হলে পুরুষের সংখ্যা কত? [নোট: প্রশ্নটি অসংগতিপূর্ণ]",
                     answers: [
                         { text: "ক. ৩০", correct: false },
                         { text: "খ. ৩৫", correct: false },
@@ -643,7 +447,7 @@
                     ]
                 },
                 {
-                    question: "২৯. 'Ubiquitous' শব্দটির সমার্থক শব্দ কোনটি চিহ্নিত করুন।",
+                    question: "'Ubiquitous' শব্দটির সমার্থক শব্দ কোনটি চিহ্নিত করুন।",
                     answers: [
                         { text: "ক. Scarce", correct: false },
                         { text: "খ. Abundant", correct: false },
@@ -652,15 +456,16 @@
                     ]
                 },
                 {
-                    question: "৩০. পাঁচটি ধারাবাহিক পূর্ণসংখ্যার গড় হলো ১৫ সবচেয়ে বড় পূর্ণ সংখ্যা কত? [/সঠিক উত্তর: ১৭/]",
+                    question: "পাঁচটি ধারাবাহিক পূর্ণসংখ্যার গড় হলো ১৫ সবচেয়ে বড় পূর্ণ সংখ্যা কত? [/সঠিক উত্তর: ১৭/]",
                     answers: [
                         { text: "ক. ১৮", correct: false },
                         { text: "খ. ২০", correct: false },
                         { text: "গ. ২২", correct: false },
                         { text: "ঘ. ২৪", correct: false }
                     ]
-                },{
-                    question: "৩৬. ৪২ এবং ৭০ এর লঘিষ্ঠ সাধারণ গুণিতক (লসাগু) নিচের কোনটি?",
+                },
+                {
+                    question: "৪২ এবং ৭০ এর লঘিষ্ঠ সাধারণ গুণিতক (লসাগু) নিচের কোনটি?",
                     answers: [
                         { text: "ক. ১৪০", correct: false },
                         { text: "খ. ২১০", correct: true },
@@ -669,7 +474,7 @@
                     ]
                 },
                 {
-                    question: "৩৭. কোনো একটি নির্দিষ্ট সংখ্যার ৭০% থেকে ৭০ বিয়োগ করলে ফলাফল ৭০ হয়। সংখ্যাটি কত?",
+                    question: "কোনো একটি নির্দিষ্ট সংখ্যার ৭০% থেকে ৭০ বিয়োগ করলে ফলাফল ৭০ হয়। সংখ্যাটি কত?",
                     answers: [
                         { text: "ক. ১০০", correct: false },
                         { text: "খ. ১৫০", correct: false },
@@ -678,7 +483,7 @@
                     ]
                 },
                 {
-                    question: "৩৮. একটি বৃত্তের ব্যাসার্ধ যদি ২০% হ্রাস করা হয়, তবে বৃত্তটির ক্ষেত্রফল শতকরা কত ভাগ হ্রাস পাবে?",
+                    question: "একটি বৃত্তের ব্যাসার্ধ যদি ২০% হ্রাস করা হয়, তবে বৃত্তটির ক্ষেত্রফল শতকরা কত ভাগ হ্রাস পাবে?",
                     answers: [
                         { text: "ক. ২০%", correct: false },
                         { text: "খ. ৩৬%", correct: true },
@@ -687,7 +492,7 @@
                     ]
                 },
                 {
-                    question: "৩৯. ১ থেকে ১০০ পর্যন্ত সংখ্যাগুলোর মধ্যে '৯' অংকটি মোট কতবার আছে?",
+                    question: "১ থেকে ১০০ পর্যন্ত সংখ্যাগুলোর মধ্যে '৯' অংকটি মোট কতবার আছে?",
                     answers: [
                         { text: "ক. ১১ বার", correct: false },
                         { text: "খ. ১৯ বার", correct: false },
@@ -696,7 +501,7 @@
                     ]
                 },
                 {
-                    question: "৪০. একটি ঘনকের এক বাহুর দৈর্ঘ্য ৫ সে.মি. হলে, ঘনকটির সমগ্র পৃষ্ঠের ক্ষেত্রফল কত বর্গ সে.মি.?",
+                    question: "একটি ঘনকের এক বাহুর দৈর্ঘ্য ৫ সে.মি. হলে, ঘনকটির সমগ্র পৃষ্ঠের ক্ষেত্রফল কত বর্গ সে.মি.?",
                     answers: [
                         { text: "ক. ১২৫", correct: false },
                         { text: "খ. ১৫০", correct: true },
@@ -705,7 +510,7 @@
                     ]
                 },
                 {
-                    question: "৪১. একটি ত্রিভুজের তিনটি কোণের অনুপাত ১ : ২ : ৩ হলে, ত্রিভুজটি কী ধরনের ত্রিভুজ?",
+                    question: "একটি ত্রিভুজের তিনটি কোণের অনুপাত ১ : ২ : ৩ হলে, ত্রিভুজটি কী ধরনের ত্রিভুজ?",
                     answers: [
                         { text: "ক. সমকোণী ত্রিভুজ", correct: true },
                         { text: "খ. সমবাহু ত্রিভুজ", correct: false },
@@ -714,7 +519,7 @@
                     ]
                 },
                 {
-                    question: "৪২. ৩, ৭, ১৫, ৩১, ৬৩, ....... ধারাটির পরবর্তী সংখ্যাটি কত?",
+                    question: "৩, ৭, ১৫, ৩১, ৬৩, ....... ধারাটির পরবর্তী সংখ্যাটি কত?",
                     answers: [
                         { text: "ক. ৯৫", correct: false },
                         { text: "খ. ১২৭", correct: true },
@@ -723,7 +528,7 @@
                     ]
                 },
                 {
-                    question: "৪৩. পিতা ও পুত্রের বর্তমান বয়সের অনুপাত ৭ : ২ এবং ৫ বছর পর তাদের বয়সের অনুপাত ৮ : ৩ হলে, পুত্রের বর্তমান বয়স কত?",
+                    question: "পিতা ও পুত্রের বর্তমান বয়সের অনুপাত ৭ : ২ এবং ৫ বছর পর তাদের বয়সের অনুপাত ৮ : ৩ হলে, পুত্রের বর্তমান বয়স কত?",
                     answers: [
                         { text: "ক. ১০ বছর", correct: true },
                         { text: "খ. ১৪ বছর", correct: false },
@@ -732,7 +537,7 @@
                     ]
                 },
                 {
-                    question: "৩১. 'Animal Liberation' ग्रंथটির রচয়িতা কে?",
+                    question: "'Animal Liberation' ग्रंथটির রচয়িতা কে?",
                     answers: [
                         { text: "ক. হেগেল", correct: false },
                         { text: "খ. কান্ট", correct: false },
@@ -741,7 +546,7 @@
                     ]
                 },
                 {
-                    question: "৩২. কোন শ্রেণির ক্রিয়া নীতিবিদ্যার আলোচ্য বিষয়ের অন্তর্ভুক্ত?",
+                    question: "কোন শ্রেণির ক্রিয়া নীতিবিদ্যার আলোচ্য বিষয়ের অন্তর্ভুক্ত?",
                     answers: [
                         { text: "ক. নৈতিকতা-নিরপেক্ষ ক্রিয়া", correct: false },
                         { text: "খ. সামাজিক ক্রিয়া", correct: false },
@@ -750,7 +555,7 @@
                     ]
                 },
                 {
-                    question: "৩৩. বাংলাদেশের 'নব্য-নৈতিকতার' প্রবর্তক হলেন-",
+                    question: "বাংলাদেশের 'নব্য-নৈতিকতার' প্রবর্তক হলেন-",
                     answers: [
                         { text: "ক. মোহাম্মদ বরকতুল্লাহ", correct: false },
                         { text: "খ. জি. সি. দেব", correct: false },
@@ -759,7 +564,7 @@
                     ]
                 },
                 {
-                    question: "৩৪. নিচের কোনটি সুশাসনের মূলনীতি?",
+                    question: "নিচের কোনটি সুশাসনের মূলনীতি?",
                     answers: [
                         { text: "ক. স্বচ্ছতা ও জবাবদিহিতা", correct: true },
                         { text: "খ. কর্তৃত্ববাদী শাসন", correct: false },
@@ -768,14 +573,14 @@
                     ]
                 },
                 {
-                    question: "৩৫. \"মানুষ হও এবং মরে বাঁচ।\" এটি কার উক্তি?",
+                    question: "\"মানুষ হও এবং মরে বাঁচ।\" এটি কার উক্তি?",
                     answers: [
                         { text: "ক. প্লেটো", correct: false },
                         { text: "খ. হেগেল", correct: true },
                         { text: "গ. জি. ই. মুর", correct: false },
                         { text: "ঘ. রাসেল", correct: false }
                     ]
-                }, // এখানে কমা (,) মিসিং ছিল যা ঠিক করা হয়েছে
+                }, 
                 {
                     question: "A, B ও C তিনটি সেটের জন্য নিচের কোনটি সঠিক নয়?",
                     answers: [
@@ -988,8 +793,7 @@
             ]
         };
 
-        const QUESTIONS_PER_ROUND = 40;
-
+        // DOM Elements
         const levelBox = document.getElementById("level-box");
         const quizBox = document.getElementById("quiz-box");
         const scoreBox = document.getElementById("score-box");
@@ -1005,14 +809,13 @@
         const currentRoundTitle = document.getElementById("current-round-title");
         const questionCounter = document.getElementById("question-counter");
 
+        // App States
         let currentLevel = 'level1';
-        let allLevelQuestions = [];
-        let activeRoundQuestions = [];
+        let activeQuestions = [];
         let currentQuestionIndex = 0;
-        let currentChunkIndex = 0;
         let score = 0;
 
-        // ** অ্যারে ওলটপালট (Shuffle) করার ফাংশন (Fisher-Yates Algorithm) **
+        // ওলটপালট (Shuffle) ফাংশন
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -1021,28 +824,25 @@
             return array;
         }
 
+        // লেভেল নির্বাচন
         function selectLevel(levelKey) {
             currentLevel = levelKey;
-            
             let originalQuestions = quizDatabase[levelKey] || [];
+            
             if(originalQuestions.length === 0) {
                 alert("এই লেভেলে এখনো কোনো প্রশ্ন যুক্ত করা হয়নি!");
                 return;
             }
             
-            allLevelQuestions = shuffleArray(JSON.parse(JSON.stringify(originalQuestions)));
-
-            currentChunkIndex = 0; 
-            startRound();
+            // গভীর কপি তৈরি করে সম্পূর্ণ ডাটাবেজ একবারে শাফল করা হলো
+            activeQuestions = shuffleArray(JSON.parse(JSON.stringify(originalQuestions)));
+            startQuiz();
         }
 
-        function startRound() {
+        // কুইজ শুরু
+        function startQuiz() {
             score = 0;
             currentQuestionIndex = 0;
-
-            const startIdx = currentChunkIndex * QUESTIONS_PER_ROUND;
-            const endIdx = startIdx + QUESTIONS_PER_ROUND;
-            activeRoundQuestions = allLevelQuestions.slice(startIdx, endIdx);
 
             levelBox.classList.add("hide");
             scoreBox.classList.add("hide");
@@ -1051,18 +851,20 @@
             showQuestion();
         }
 
+        // প্রশ্ন প্রদর্শন
         function showQuestion() {
             resetState();
             updateProgress();
 
-            let currentQuestion = activeRoundQuestions[currentQuestionIndex];
+            let currentQuestion = activeQuestions[currentQuestionIndex];
             
-            currentRoundTitle.innerHTML = `লেভেল ${currentLevel.replace('level','')} - রাউন্ড ${currentChunkIndex + 1}`;
-            questionCounter.innerHTML = `${currentQuestionIndex + 1} / ${activeRoundQuestions.length}`;
+            currentRoundTitle.innerHTML = `লেভেল ${currentLevel.replace('level','')}`;
+            questionCounter.innerHTML = `${currentQuestionIndex + 1} / ${activeQuestions.length}`;
             
-            // সিরিয়াল নাম্বার ডায়নামিক করার জন্য আলাদা ভেরিয়েবল রাখা হলো
+            // পূর্বের হার্ডকোডেড সিরিয়াল থাকলে তা বাদ দিয়ে ডায়নামিক সিরিয়াল যোগ
             questionElement.innerHTML = `${currentQuestionIndex + 1}. ${currentQuestion.question.replace(/^\d+\.\s*/, '')}`;
 
+            // অপশনগুলো ওলটপালট করা
             let shuffledAnswers = shuffleArray([...currentQuestion.answers]);
 
             shuffledAnswers.forEach(answer => {
@@ -1077,6 +879,7 @@
             });
         }
 
+        // রিমুভ ও রিসেট স্টেট
         function resetState() {
             nextButton.classList.add("hide");
             while (answerButtonsElement.firstChild) {
@@ -1084,11 +887,13 @@
             }
         }
 
+        // প্রোগ্রেস বার আপডেট
         function updateProgress() {
-            const percentage = (currentQuestionIndex / activeRoundQuestions.length) * 100;
+            const percentage = (currentQuestionIndex / activeQuestions.length) * 100;
             progressFill.style.width = `${percentage}%`;
         }
 
+        // উত্তর নির্বাচন হ্যান্ডলার
         function selectAnswer(e) {
             const selectedBtn = e.target;
             const isCorrect = selectedBtn.dataset.correct === "true";
@@ -1100,6 +905,7 @@
                 selectedBtn.classList.add("wrong");
             }
 
+            // সঠিক উত্তরটি সবুজ করা এবং অন্যান্য বাটন লক করা
             Array.from(answerButtonsElement.children).forEach(button => {
                 if (button.dataset.correct === "true") {
                     button.classList.add("correct");
@@ -1110,30 +916,21 @@
             nextButton.classList.remove("hide");
         }
 
+        // ফাইনাল স্কোর প্রদর্শন
         function showScore() {
             resetState();
             progressFill.style.width = "100%";
             quizBox.classList.add("hide");
             scoreBox.classList.remove("hide");
 
-            finalScoreElement.innerHTML = `${score} / ${activeRoundQuestions.length}`;
+            finalScoreElement.innerHTML = `${score} / ${activeQuestions.length}`;
 
-            const hasMoreQuestions = allLevelQuestions.length > (currentChunkIndex + 1) * QUESTIONS_PER_ROUND;
+            actionStepBtn.innerHTML = "আবার খেলুন";
+            actionStepBtn.onclick = () => {
+                selectLevel(currentLevel);
+            };
 
-            if (hasMoreQuestions) {
-                actionStepBtn.innerHTML = "পরবর্তী ৪০টি প্রশ্ন খেলুন";
-                actionStepBtn.onclick = () => {
-                    currentChunkIndex++;
-                    startRound();
-                };
-            } else {
-                actionStepBtn.innerHTML = "আবার খেলুন (নতুন শাফল)";
-                actionStepBtn.onclick = () => {
-                    selectLevel(currentLevel);
-                };
-            }
-
-            const passRate = score / activeRoundQuestions.length;
+            const passRate = score / activeQuestions.length;
             if (passRate === 1) {
                 scoreCommentary.innerHTML = "অসাধারণ! আপনি সব প্রশ্নের সঠিক উত্তর দিয়েছেন।";
             } else if (passRate >= 0.7) {
@@ -1143,21 +940,24 @@
             }
         }
 
+        // পরবর্তী প্রশ্ন বাটন ক্লিক হ্যান্ডলার
         function handleNextButton() {
             currentQuestionIndex++;
-            if (currentQuestionIndex < activeRoundQuestions.length) {
+            if (currentQuestionIndex < activeQuestions.length) {
                 showQuestion();
             } else {
                 showScore();
             }
         }
 
+        // প্রধান মেনুতে ফিরে যাওয়া
         function goToMainMenu() {
             quizBox.classList.add("hide");
             scoreBox.classList.add("hide");
             levelBox.classList.remove("hide");
         }
 
+        // ইভেন্ট লিসেনার
         nextButton.addEventListener("click", handleNextButton);
         homeButton.addEventListener("click", goToMainMenu);
         mainMenuBtn.addEventListener("click", goToMainMenu);
