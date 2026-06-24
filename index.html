@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ওয়েব ডেভেলপমেন্ট কুইজ</title>
+    <style>
+        /* CSS ডিজাইন */
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --correct-color: #10b981;
+            --wrong-color: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        #progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #334155;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        #progress-fill {
+            height: 100%;
+            width: 0%;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .btn-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .btn {
+            background-color: #334155;
+            color: var(--text-main);
+            border: 2px solid transparent;
+            padding: 14px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover:not(:disabled) {
+            background-color: #475569;
+        }
+
+        .btn:disabled {
+            cursor: not-allowed;
+        }
+
+        .btn.correct {
+            background-color: rgba(16, 185, 129, 0.2);
+            border-color: var(--correct-color);
+            color: #34d399;
+        }
+
+        .btn.wrong {
+            background-color: rgba(239, 68, 68, 0.2);
+            border-color: var(--wrong-color);
+            color: #f87171;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .next-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .score-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .score-num {
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <!-- প্রোগ্রেস বার -->
+        <div id="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+
+        <!-- কুইজ বক্স -->
+        <div id="quiz-box">
+            <div class="quiz-header">
+                <h2 id="question">প্রশ্ন লোড হচ্ছে...</h2>
+            </div>
+            <div id="answer-buttons" class="btn-grid">
+                <!-- অপশনগুলো জাভাস্ক্রিপ্ট দিয়ে আসবে -->
+            </div>
+            <div class="actions">
+                <button id="next-btn" class="next-btn hide">পরবর্তী প্রশ্ন</button>
+            </div>
+        </div>
+
+        <!-- রেজাল্ট স্ক্রিন -->
+        <div id="score-box" class="score-container hide">
+            <h2>কুইজ সম্পন্ন হয়েছে!</h2>
+            <div class="score-num" id="final-score">0 / 0</div>
+            <p id="score-commentary" style="color: var(--text-muted); margin-bottom: 24px;"></p>
+            <button id="restart-btn" class="next-btn">আবার খেলুন</button>
+        </div>
+    </div>
+
+    <script>
+        // জাভাস্ক্রিপ্ট কুইজ ডাটা ও লজিক
+        // এখানে আপনি নিজের ইচ্ছেমতো প্রশ্ন ও উত্তর পরিবর্তন করতে পারেন
+        const questions = [
+            {
+                question: "নিচের কোনটি সঠিক জাভাস্ক্রিপ্ট ভেরিয়েবল নাম নয়?",
+                answers: [
+                    { text: "22languages", correct: true },
+                    { text: "_firstVariable", correct: false },
+                    { text: "$moneyAmount", correct: false },
+                    { text: "camelCaseName", correct: false }
+                ]
+            },
+            {
+                question: "CSS এর পূর্ণরূপ (Full Form) কী?",
+                answers: [
+                    { text: "Creative Style Sheets", correct: false },
+                    { text: "Cascading Style Sheets", correct: true },
+                    { text: "Computer Style Sheets", correct: false },
+                    { text: "Colorful Style Sheets", correct: false }
+                ]
+            },
+            {
+                question: "HTML5-এ ভিডিও দেখানোর জন্য কোন ট্যাগ ব্যবহার করা হয়?",
+                answers: [
+                    { text: "&lt;media&gt;", correct: false },
+                    { text: "&lt;movie&gt;", correct: false },
+                    { text: "&lt;video&gt;", correct: true },
+                    { text: "&lt;embed&gt;", correct: false }
+                ]
+            },
+            {
+                question: "কোন HTTP স্ট্যাটাস কোড দিয়ে 'Not Found' বা পেজ খুঁজে না পাওয়া বোঝায়?",
+                answers: [
+                    { text: "403 Forbidden", correct: false },
+                    { text: "500 Internal Server Error", correct: false },
+                    { text: "400 Bad Request", correct: false },
+                    { text: "404 Not Found", correct: true }
+                ]
+            }
+        ];
+
+        const quizBox = document.getElementById("quiz-box");
+        const scoreBox = document.getElementById("score-box");
+        const questionElement = document.getElementById("question");
+        const answerButtonsElement = document.getElementById("answer-buttons");
+        const nextButton = document.getElementById("next-btn");
+        const restartButton = document.getElementById("restart-btn");
+        const finalScoreElement = document.getElementById("final-score");
+        const scoreCommentary = document.getElementById("score-commentary");
+        const progressFill = document.getElementById("progress-fill");
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            scoreBox.classList.add("hide");
+            quizBox.classList.remove("hide");
+            showQuestion();
+        }
+
+        function showQuestion() {
+            resetState();
+            updateProgress();
+
+            let currentQuestion = questions[currentQuestionIndex];
+            questionElement.innerHTML = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+            currentQuestion.answers.forEach(answer => {
+                const button = document.createElement("button");
+                button.innerHTML = answer.text;
+                button.classList.add("btn");
+                if (answer.correct) {
+                    button.dataset.correct = answer.correct;
+                }
+                button.addEventListener("click", selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            nextButton.classList.add("hide");
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function updateProgress() {
+            const percentage = ((currentQuestionIndex) / questions.length) * 100;
+            progressFill.style.width = `${percentage}%`;
+        }
+
+        function selectAnswer(e) {
+            const selectedBtn = e.target;
+            const isCorrect = selectedBtn.dataset.correct === "true";
+
+            if (isCorrect) {
+                selectedBtn.classList.add("correct");
+                score++;
+            } else {
+                selectedBtn.classList.add("wrong");
+            }
+
+            Array.from(answerButtonsElement.children).forEach(button => {
+                if (button.dataset.correct === "true") {
+                    button.classList.add("correct");
+                }
+                button.disabled = true; // একবার ক্লিক করার পর বাকি বাটন লক করে দেওয়া
+            });
+
+            nextButton.classList.remove("hide");
+        }
+
+        function showScore() {
+            resetState();
+            progressFill.style.width = "100%";
+            quizBox.classList.add("hide");
+            scoreBox.classList.remove("hide");
+
+            finalScoreElement.innerHTML = `${score} / ${questions.length}`;
+
+            const passRate = score / questions.length;
+            if (passRate === 1) {
+                scoreCommentary.innerHTML = "চমৎকার! আপনি সব প্রশ্নের সঠিক উত্তর দিয়েছেন।";
+            } else if (passRate >= 0.7) {
+                scoreCommentary.innerHTML = "খুব ভালো হয়েছে! আপনার জ্ঞান বেশ ভালো।";
+            } else {
+                scoreCommentary.innerHTML = "আরেকটু চেষ্টা করুন এবং আবার খেলুন!";
+            }
+        }
+
+        function handleNextButton() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                showScore();
+            }
+        }
+
+        nextButton.addEventListener("click", handleNextButton);
+        restartButton.addEventListener("click", startQuiz);
+
+        startQuiz();
+    </script>
+</body>
+
+</html>
