@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মাল্টি-লেভেল কুইজ গেম</title>
+    <title>মাল্টি-লেভেল শাফল কুইজ গেম</title>
     <style>
         :root {
             --primary-color: #4f46e5;
@@ -148,7 +148,6 @@
             margin: 15px 0;
         }
 
-        /* Home View Styles */
         .level-menu {
             display: grid;
             grid-template-columns: 1fr;
@@ -187,7 +186,7 @@
                     <h3>লেভেল ২ (Level 2)</h3>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 5px;">অ্যাডভান্সড টপিকস</p>
                 </div>
-                </div>
+            </div>
         </div>
 
         <div id="quiz-box" class="hide">
@@ -220,12 +219,6 @@
     </div>
 
     <script>
-        // ==========================================
-        // ১. কুইজ ডাটাবেস (কিভাবে আরও প্রশ্ন যুক্ত করবেন)
-        // ==========================================
-        // প্রতিটি লেভেলে আপনি ৪০, ৮০ বা ১০০টি প্রশ্ন রাখতে পারেন। 
-        // সিস্টেমটি স্বয়ংক্রিয়ভাবে প্রতি ৪০টি প্রশ্ন পর পর রাউন্ড পরিবর্তন করবে।
-        
         const quizDatabase = {
             level1: [
                 {
@@ -426,12 +419,10 @@
                         { text: "২/৫", correct: false }
                     ]
                 }
-                // এখানে আপনি আরও প্রশ্ন পেস্ট করে ৪০ বা তার বেশি করতে পারেন...
             ],
             level2: [
-                // লেভেল ২ এর জন্য এখানে নতুন প্রশ্ন অবজেক্ট বসাবেন
                 {
-                    question: "নমুনা প্রশ্ন: জাভাস্ক্রিপ্ট এ 'const' কী ধরনের ভেরিয়েবল ডিক্লেয়ার করে?",
+                    question: "জাভাস্ক্রিপ্ট এ 'const' কী ধরনের ভেরিয়েবল ডিক্লেয়ার করে?",
                     answers: [
                         { text: "পরিবর্তনশীল ভেরিয়েবল", correct: false },
                         { text: "অপরিবর্তনশীল বা ধ্রুবক (Block-scoped)", correct: true },
@@ -439,16 +430,11 @@
                         { text: "ফাংশন স্কোপড ভেরিয়েবল", correct: false }
                     ]
                 }
-            ],
-            level3: [] // লেভেল ৩ এর জন্য এখানে প্রশ্ন বসাবেন
+            ]
         };
 
-        // ==========================================
-        // ২. কুইজ ইঞ্জিন লজিক (৪০টি করে ভাগ করার কোড)
-        // ==========================================
-        const QUESTIONS_PER_ROUND = 40; // প্রতি রাউন্ডে সর্বোচ্চ ৪০টি প্রশ্ন থাকবে
+        const QUESTIONS_PER_ROUND = 40;
 
-        // ডম এলিমেন্টস
         const levelBox = document.getElementById("level-box");
         const quizBox = document.getElementById("quiz-box");
         const scoreBox = document.getElementById("score-box");
@@ -464,34 +450,43 @@
         const currentRoundTitle = document.getElementById("current-round-title");
         const questionCounter = document.getElementById("question-counter");
 
-        // গ্লোবাল ভেরিয়েবলস
         let currentLevel = 'level1';
         let allLevelQuestions = [];
         let activeRoundQuestions = [];
-        let currentQuestionIndex = 0; // রাউন্ডের সাপেক্ষে ইনডেক্স (0 থেকে 39)
-        let currentChunkIndex = 0;    // রাউন্ড কাউন্টার (0 = প্রথম ৪০টি, 1 = পরবর্তী ৪০টি)
+        let currentQuestionIndex = 0;
+        let currentChunkIndex = 0;
         let score = 0;
 
-        // লেভেল সিলেক্ট করা
+        // ** অ্যারে ওলটপালট (Shuffle) করার ফাংশন (Fisher-Yates Algorithm) **
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
         function selectLevel(levelKey) {
             currentLevel = levelKey;
-            allLevelQuestions = quizDatabase[levelKey] || [];
             
-            if(allLevelQuestions.length === 0) {
+            // ডাটাবেজ থেকে আসল অবজেক্টগুলোর একটি 'Deep Copy' তৈরি করছি যাতে মূল ডাটা নষ্ট না হয়
+            let originalQuestions = quizDatabase[levelKey] || [];
+            if(originalQuestions.length === 0) {
                 alert("এই লেভেলে এখনো কোনো প্রশ্ন যুক্ত করা হয়নি!");
                 return;
             }
+            
+            // ১. সম্পূর্ণ লেভেলের সব প্রশ্নকে ওলটপালট (Shuffle) করা হচ্ছে
+            allLevelQuestions = shuffleArray(JSON.parse(JSON.stringify(originalQuestions)));
 
-            currentChunkIndex = 0; // রাউন্ড ১ থেকে শুরু হবে
+            currentChunkIndex = 0; 
             startRound();
         }
 
-        // নির্দিষ্ট রাউন্ড (৪০টি প্রশ্নের সেট) শুরু করা
         function startRound() {
             score = 0;
             currentQuestionIndex = 0;
 
-            // সমস্ত প্রশ্নের অ্যারে থেকে ৪০টি করে কেটে নেওয়া হচ্ছে (Slice)
             const startIdx = currentChunkIndex * QUESTIONS_PER_ROUND;
             const endIdx = startIdx + QUESTIONS_PER_ROUND;
             activeRoundQuestions = allLevelQuestions.slice(startIdx, endIdx);
@@ -509,13 +504,15 @@
 
             let currentQuestion = activeRoundQuestions[currentQuestionIndex];
             
-            // রাউন্ড ও প্রশ্নের কাউন্টার আপডেট
             currentRoundTitle.innerHTML = `লেভেল ${currentLevel.replace('level','')} - রাউন্ড ${currentChunkIndex + 1}`;
             questionCounter.innerHTML = `${currentQuestionIndex + 1} / ${activeRoundQuestions.length}`;
             
             questionElement.innerHTML = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
 
-            currentQuestion.answers.forEach(answer => {
+            // ২. প্রদর্শনের পূর্বে উত্তর বা অপশনগুলোকে ওলটপালট (Shuffle) করা হচ্ছে
+            let shuffledAnswers = shuffleArray([...currentQuestion.answers]);
+
+            shuffledAnswers.forEach(answer => {
                 const button = document.createElement("button");
                 button.innerHTML = answer.text;
                 button.classList.add("btn");
@@ -560,7 +557,6 @@
             nextButton.classList.remove("hide");
         }
 
-        // রাউন্ড শেষে স্কোর বোর্ড দেখানো
         function showScore() {
             resetState();
             progressFill.style.width = "100%";
@@ -569,7 +565,6 @@
 
             finalScoreElement.innerHTML = `${score} / ${activeRoundQuestions.length}`;
 
-            // পরবর্তী রাউন্ডে যাওয়ার মতো প্রশ্ন অবশিষ্ট আছে কিনা চেক করা
             const hasMoreQuestions = allLevelQuestions.length > (currentChunkIndex + 1) * QUESTIONS_PER_ROUND;
 
             if (hasMoreQuestions) {
@@ -579,9 +574,10 @@
                     startRound();
                 };
             } else {
-                actionStepBtn.innerHTML = "আবার খেলুন (এই রাউন্ড)";
+                actionStepBtn.innerHTML = "আবার খেলুন (নতুন শাফল)";
                 actionStepBtn.onclick = () => {
-                    startRound();
+                    // একই লেভেল আবার খেললে প্রশ্ন ও উত্তর নতুন করে পুনরায় শাফল হবে
+                    selectLevel(currentLevel);
                 };
             }
 
@@ -591,29 +587,4 @@
             } else if (passRate >= 0.7) {
                 scoreCommentary.innerHTML = "খুব ভালো হয়েছে! আপনার স্কোর বেশ চমৎকার।";
             } else {
-                scoreCommentary.innerHTML = "আরেকটু চেষ্টা করুন এবং দক্ষতা বাড়ান!";
-            }
-        }
-
-        function handleNextButton() {
-            currentQuestionIndex++;
-            if (currentQuestionIndex < activeRoundQuestions.length) {
-                showQuestion();
-            } else {
-                showScore();
-            }
-        }
-
-        function goToMainMenu() {
-            quizBox.classList.add("hide");
-            scoreBox.classList.add("hide");
-            levelBox.classList.remove("hide");
-        }
-
-        nextButton.addEventListener("click", handleNextButton);
-        homeButton.addEventListener("click", goToMainMenu);
-        mainMenuBtn.addEventListener("click", goToMainMenu);
-    </script>
-</body>
-
-</html>
+                scoreCommentary.
