@@ -587,4 +587,29 @@
             } else if (passRate >= 0.7) {
                 scoreCommentary.innerHTML = "খুব ভালো হয়েছে! আপনার স্কোর বেশ চমৎকার।";
             } else {
-                scoreCommentary.
+                scoreCommentary.innerHTML = "আরেকটু চেষ্টা করুন এবং দক্ষতা বাড়ান!";
+            }
+        }
+
+        function handleNextButton() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < activeRoundQuestions.length) {
+                showQuestion();
+            } else {
+                showScore();
+            }
+        }
+
+        function goToMainMenu() {
+            quizBox.classList.add("hide");
+            scoreBox.classList.add("hide");
+            levelBox.classList.remove("hide");
+        }
+
+        nextButton.addEventListener("click", handleNextButton);
+        homeButton.addEventListener("click", goToMainMenu);
+        mainMenuBtn.addEventListener("click", goToMainMenu);
+    </script>
+</body>
+
+</html>
