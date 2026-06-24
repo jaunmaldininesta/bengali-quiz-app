@@ -173,6 +173,104 @@
         // জাভাস্ক্রিপ্ট কুইজ ডাটা ও লজিক
         const questions = [
             {
+        question: "A, B ও C তিনটি সেটের জন্য নিচের কোনটি সঠিক নয়?",
+        answers: [
+            { text: "A &cup; (B &cap; C) = (A &cup; B) &cap; (A &cup; C)", correct: false },
+            { text: "A &cap; (B &cup; C) = (A &cap; B) &cup; (A &cap; C)", correct: false },
+            { text: "(A &cup; B)' = A' &cap; B'", correct: false },
+            { text: "(A &cap; B)' = A' &cap; B'", correct: true }
+        ]
+    },
+    {
+        question: "কোনো সমবাহু ত্রিভুজের ক্ষেত্রফল ৪&radic;৩ বর্গ সে.মি. হলে, উহার পরিসীমা কত?",
+        answers: [
+            { text: "১২ সে.মি.", correct: true },
+            { text: "১৫ সে.মি.", correct: false },
+            { text: "৯ সে.মি.", correct: false },
+            { text: "১৮ সে.মি.", correct: false }
+        ]
+    },
+    {
+        question: "যদি f(x) = x<sup>3</sup> + ax<sup>2</sup> - 6x - 9 হয়, তবে 'a' এর কোন মানের জন্য f(-3) = 0 হবে?",
+        answers: [
+            { text: "-2", correct: false },
+            { text: "-1", correct: false },
+            { text: "0", correct: true },
+            { text: "2", correct: false }
+        ]
+    },
+    {
+        question: "৪ জন পুরুষ ও ৫ জন মহিলার মধ্য থেকে ৪ সদস্য বিশিষ্ট একটি উপকমিটি গঠন করতে হবে, যাতে অন্তত ২ জন পুরুষ অন্তর্ভুক্ত থাকে। এটি কত প্রকারে করা যায়?",
+        answers: [
+            { text: "৮০", correct: false },
+            { text: "৭১", correct: false },
+            { text: "৬৫", correct: false },
+            { text: "৮১", correct: true }
+        ]
+    },
+    {
+        question: "একটি মোটরসাইকেল ১২% ক্ষতিতে বিক্রি করা হলো। যদি বিক্রয়মূল্য ১২০০ টাকা বেশি হতো, তাহলে ৮% লাভ হতো। মোটরসাইকেলটির ক্রয়মূল্য কত?",
+        answers: [
+            { text: "৫০০০ টাকা", correct: false },
+            { text: "৫৫০০ টাকা", correct: false },
+            { text: "৬০০০ টাকা", correct: true },
+            { text: "৬৫০০ টাকা", correct: false }
+        ]
+    },
+    {
+        question: "কম্পিউটারের অভ্যন্তরীণ প্রক্রিয়াকরণ এবং নিয়ন্ত্রণের কাজ পরিচালনার জন্য কোন ইউনিট দায়ী?",
+        answers: [
+            { text: "ALU (Arithmetic Logic Unit)", correct: false },
+            { text: "CU (Control Unit)", correct: true },
+            { text: "Memory Unit", correct: false },
+            { text: "Input Unit", correct: false }
+        ]
+    },
+    {
+        question: "নিচের কোনটি কম্পিউটারের প্রাইমারী মেমোরি (Primary Memory)?",
+        answers: [
+            { text: "Hard Disk", correct: false },
+            { text: "SSD", correct: false },
+            { text: "RAM", correct: true },
+            { text: "Magnetic Tape", correct: false }
+        ]
+    },
+    {
+        question: "কম্পিউটারে ডাটা ইনপুট দেওয়ার জন্য বহুল ব্যবহৃত ডিভাইস কোনটি?",
+        answers: [
+            { text: "Monitor", correct: false },
+            { text: "Keyboard", correct: true },
+            { text: "Printer", correct: false },
+            { text: "Speaker", correct: false }
+        ]
+    },
+    {
+        question: "কোন মেমোরিটি উদ্বায়ী বা ভোলাটাইল (Volatile), অর্থাৎ বিদ্যুৎ চলে গেলে ডাটা মুছে যায়?",
+        answers: [
+            { text: "ROM", correct: false },
+            { text: "Hard Disk", correct: false },
+            { text: "RAM", correct: true },
+            { text: "Flash Drive", correct: false }
+        ]
+    },
+    {
+        question: "কম্পিউটার সিস্টেমের মেমোরি এড্রেস এবং কন্ট্রোল সিগন্যাল বহন করার জন্য কোনটি ব্যবহৃত হয়?",
+        answers: [
+            { text: "System Bus", correct: true },
+            { text: "Cache Memory", correct: false },
+            { text: "Register", correct: false },
+            { text: "Port", correct: false }
+        ]
+    },
+    {
+        question: "কোন প্রযুক্তিটি ব্যবহারকারীকে একটি কৃত্রিম ত্রিমাত্রিক (3D) পরিবেশের সাথে মিথস্ক্রিয়া বা ইন্টারঅ্যাক্ট করার সুযোগ দেয়?",
+        answers: [
+            { text: "Augmented Reality (AR)", correct: false },
+            { text: "Virtual Reality (VR)", correct: true },
+            { text: "Artificial Intelligence (AI)", correct: false },
+            { text: "Machine Learning (ML)", correct: false }
+        ]
+    }{
                 question: "নিচের কোন ভগ্নাংশটি ৩/৮ হতে বড়?",
                 answers: [
                     { text: "৩৩/৫০", correct: true },
